@@ -13,12 +13,19 @@ const App: React.FC = () => {
   const getInfo = useCallback(async (alpha3Code: string) => {
     try {
       const {data} = await axios.get<InfoCountries>(ALPHA_URL + alpha3Code);
+      const borderNames: string[] = data.borders ? await Promise.all(
+        data.borders.map(async (alpha3Code) => {
+          const {data} = await axios.get<InfoCountries>(ALPHA_URL + alpha3Code);
+          return data.name;
+        })
+      ) : [];
 
       const countryInfo: InfoCountries = {
         name: data.name,
         capital: data.capital,
         population: data.population,
         flag: data.flag,
+        borders: borderNames,
       };
       setClickedCountry(countryInfo);
     } catch (error) {
@@ -52,6 +59,7 @@ const App: React.FC = () => {
           capital={clickedCountry.capital}
           population={clickedCountry.population}
           flag={clickedCountry.flag}
+          borders={clickedCountry.borders}
         />
       )}
     </div>

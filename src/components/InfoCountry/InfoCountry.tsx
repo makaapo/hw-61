@@ -2,7 +2,7 @@ import React from 'react';
 import './InfoCountry.css';
 import {InfoCountries} from '../../types';
 
-const InfoCountry: React.FC<InfoCountries> = ({name, capital, population, flag}) => (
+const InfoCountry: React.FC<InfoCountries> = ({name, capital, population, flag, borders}) => (
   <div className="info">
     <div className="main-info">
       <div className="text">
@@ -14,6 +14,9 @@ const InfoCountry: React.FC<InfoCountries> = ({name, capital, population, flag})
         <img className="flag-img" src={flag} alt="flag" />
       </div>
       <h2>Граничит с:</h2>
+      {borders  && (
+        <span>{borders.join(', ')}</span>
+      ) }
     </div>
   </div>
 );

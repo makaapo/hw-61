@@ -9,4 +9,5 @@ export interface InfoCountries {
   capital: string;
   population: number;
   flag: string;
+  borders: string [];
 }
