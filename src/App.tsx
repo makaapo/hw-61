@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import InfoCountry from './components/InfoCountry/InfoCountry';
 import Countries from './components/Countries/Countries';
 import {Country, InfoCountries} from './types';

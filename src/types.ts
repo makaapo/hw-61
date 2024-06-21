@@ -3,7 +3,6 @@ export interface Country {
   alpha3Code: string;
 }
 
-
 export interface InfoCountries {
   name: string;
   capital: string;

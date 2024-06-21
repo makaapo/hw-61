@@ -14,9 +14,11 @@ const InfoCountry: React.FC<InfoCountries> = ({name, capital, population, flag, 
         <img className="flag-img" src={flag} alt="flag" />
       </div>
       <h2>Граничит с:</h2>
-      {borders  && (
+      {borders.length > 0 ? (
         <span>{borders.join(', ')}</span>
-      ) }
+      ) : (
+        <span>Нет границ с другими странами</span>
+      )}
     </div>
   </div>
 );
